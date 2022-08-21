@@ -1,0 +1,26 @@
+.nav-main-content{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 40px;
+    border-bottom: 1px solid black;
+}
+.nav-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.nav-world-text{
+    padding-top: 10px;
+    padding-left: 10%;
+    font-weight: bold;
+    font-size: 17px;
+}
+.nav-dark-mode{
+    padding-top: 10px;
+    padding-right: 10%;
+}

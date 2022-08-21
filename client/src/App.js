@@ -1,9 +1,9 @@
-
+import LightMode from './components/LightMode'
 
 const App = () => {
   return (
     <div className="App">
-      Hello World
+      <LightMode/>
     </div>
   );
 }
