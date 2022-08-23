@@ -3,11 +3,15 @@ import axios from 'axios'
 import {useState, useEffect, useRef} from 'react';
 import {Card} from 'react-bootstrap';
 import './index.css';
+import {Link} from 'react-router-dom';
 
 const LightMode = () => {
     const [data, setData] = useState([])
     const [isPressed, setIsPressed] = useState(false)
     const [filter, setFilter] = useState('')
+    const [searchTerm, setSearchTerm] = useState('')
+    const [searchResults, setSearchResults] = useState([],)
+    const [searchPressed, setSearchPressed] = useState(false)
 
     useEffect(() =>{
         axios.get('https://restcountries.com/v3.1/all').then(res=>{
@@ -31,7 +35,8 @@ const LightMode = () => {
 
     useEffect(() => {
         setData([])
-        axios.get(`https://restcountries.com/v3.1/region/${filter}`).then((res) => {
+        if(filter !== ''){
+            axios.get(`https://restcountries.com/v3.1/region/${filter}`).then((res) => {
             console.log(res)
 
             let toInsert = res.data.map((country) =>({
@@ -45,25 +50,83 @@ const LightMode = () => {
             setData((prev) => [...prev, ...toInsert])
 
         })
+        }
+        
     },[filter])
 
-    console.log(data)
+    const handleChange = (event) => {
+        setSearchTerm(event.target.value)
+        setSearchPressed(!searchPressed)
+    }
+
+    useEffect(() => {
+        if(searchTerm !== ''){
+            axios.get(`https://restcountries.com/v3.1/name/${searchTerm}`).then(
+                res=>{
+                    console.log(res)
+                    let toInsert = res.data.map((country) =>({
+                        name: country.name.common,
+                        image: country.flags.png,
+                    }))
+
+                    setSearchResults((prev) => [...prev, ...toInsert])
+                }
+            )
+        }
+    },[searchTerm])
+
+    const handleSearch = (event) =>{
+        console.log(event)
+        setSearchPressed(!searchPressed)
+        setSearchTerm('')
+    }
+
+    console.log(searchResults)
+
     return(
         <div className='lightmode-content'>
-            <NavigationBar />
             <div className='search-dropdown'>
-                <input type='text' className='search-input' placeholder='Search'/>
+                <div>
+                    <input 
+                        type='search' 
+                        className='search-input' 
+                        placeholder='Search'
+                        value={searchTerm}
+                        onChange={handleChange}
+                    />
+                        {searchPressed ? 
+                            <div
+                                className='search-results' 
+                                style={{overflowY:'auto'}}
+                            >
+                                {searchResults.map((country, idx) =>(
+                                    <Link 
+                                        to={`/${country.name}`}
+                                        key={idx} 
+                                        className='searchItem'
+                                        onClick={handleSearch}
+                                    >
+                                        <img src={country.image} alt='county-img' style={{width: '25px', marginRight:'5px'}}/>
+                                        {country.name}
+                                        
+                                    </Link>
+                                ))}
+                            </div>: null
+                        }
+
+                </div>
+
                 <div className='dropdown'>
                     <button className='dropdown-button' onClick={() => setIsPressed(!isPressed)}>
                         <span>Filter by Region</span>    
                     </button> 
                     {isPressed ? 
                         <div className='dropdown-items'>
-                            <a className='dropdown-item' href='#' onClick={handleAClick}>Africa</a>
-                            <a className='dropdown-item' href='#' onClick={handleAClick}>America</a>
-                            <a className='dropdown-item' href='#' onClick={handleAClick}>Asia</a>
-                            <a className='dropdown-item' href='#' onClick={handleAClick}>Europe</a>
-                            <a className='dropdown-item' href='#' onClick={handleAClick}>Oceania</a>
+                            <a className='dropdown-item' href='africa' onClick={handleAClick}>Africa</a>
+                            <a className='dropdown-item' href='america' onClick={handleAClick}>America</a>
+                            <a className='dropdown-item' href='asia' onClick={handleAClick}>Asia</a>
+                            <a className='dropdown-item' href='europe' onClick={handleAClick}>Europe</a>
+                            <a className='dropdown-item' href='oceania`' onClick={handleAClick}>Oceania</a>
                         </div>: null
                     }
                 </div>

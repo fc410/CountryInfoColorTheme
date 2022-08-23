@@ -35,6 +35,11 @@
 .search-input {
   margin-left: 5%;
   border: none;
+  height: 100%;
+}
+
+.searchItem {
+  width: 100%;
 }
 
 .dropdown {
@@ -57,5 +62,23 @@
   position: relative;
 }
 .dropdown-items .dropdown-item:hover {
+  background-color: rgb(207, 207, 207);
+}
+
+.search-results {
+  position: relative;
+  left: 10px;
+  background: white;
+  height: 150px;
+  width: 185px;
+  display: flex;
+  flex-direction: column;
+}
+.search-results .searchItem {
+  width: 100%;
+  color: black;
+  text-decoration: none;
+}
+.search-results .searchItem:hover {
   background-color: rgb(207, 207, 207);
 }/*# sourceMappingURL=index.css.map */
