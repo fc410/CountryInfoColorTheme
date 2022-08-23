@@ -1,0 +1,62 @@
+.lightmode-content{
+    background-color: rgb(230, 230, 230);
+    height: 100vh;
+    width: 100%;
+}
+
+.search-dropdown{
+    position: absolute;
+    top: 15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 6%;
+    z-index:9;
+}
+
+.grid-box{
+    position: absolute;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    top: 20%;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.country-card{
+    margin: 30px;
+}
+
+.body-text{
+    font-weight: bold;
+}
+
+.search-input{
+    margin-left: 5%;
+    border: none;
+}
+
+.dropdown {
+    margin-right: 5%;
+    position: relative;
+}
+  
+.dropdown-button{
+    border: none;
+    width: 200px;
+    height: 100%;
+}
+
+.dropdown-button:hover{
+    background-color: rgb(207, 207, 207);
+}
+
+.dropdown-items{
+    background-color: white;
+    position: relative;
+
+    .dropdown-item:hover{
+        background-color: rgb(207, 207, 207);
+    }
+}
