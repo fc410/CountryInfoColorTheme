@@ -7,3 +7,6 @@ For this project I will be utilizing the REST Countries API to display all the c
   <li>SCSS/SASS</li>
   <li>REST Countries API</li>
 </ul>
+
+# Live
+https://country-information-color-theme.netlify.app/
