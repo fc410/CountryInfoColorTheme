@@ -6,3 +6,73 @@
     height: 100vh;
     width: 100%;
 }
+
+.info-button{
+    display: flex;
+    position: absolute;
+    top: 15%;
+    left: 5%;
+    text-decoration: none;
+
+    .button-info{
+        width: 100px;
+        border: none;
+        background-color:white;
+        box-shadow: 1px 1px 2px 2px rgb(200, 200, 200);
+    
+        &:hover{
+            background-color: rgb(201, 201, 201);
+            color: white;
+        }
+    }
+}
+
+.data-info{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 30%;
+    left: 5%;
+
+    .flag-img{
+        width: 400px;
+        height: 300px;
+    }
+
+    .country-name{
+        margin-left: 100px;
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+
+        .name{
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .info-description{
+            display: flex;
+            flex-direction: row;
+
+            .right-info{
+                margin-left: 50px;
+            }
+        }
+    }
+}
+
+.title{
+    font-weight: bold;
+}
+
+.border-countries{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+
+    .border-country{
+        margin-left: 10px;
+        border: 1px solid gray;
+    }
+}
+

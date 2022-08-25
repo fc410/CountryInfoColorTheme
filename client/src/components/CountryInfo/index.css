@@ -5,4 +5,65 @@
   align-items: center;
   height: 100vh;
   width: 100%;
+}
+
+.info-button {
+  display: flex;
+  position: absolute;
+  top: 15%;
+  left: 5%;
+  text-decoration: none;
+}
+.info-button .button-info {
+  width: 100px;
+  border: none;
+  background-color: white;
+  box-shadow: 1px 1px 2px 2px rgb(200, 200, 200);
+}
+.info-button .button-info:hover {
+  background-color: rgb(201, 201, 201);
+  color: white;
+}
+
+.data-info {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  top: 30%;
+  left: 5%;
+}
+.data-info .flag-img {
+  width: 400px;
+  height: 300px;
+}
+.data-info .country-name {
+  margin-left: 100px;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+.data-info .country-name .name {
+  font-weight: bold;
+  font-size: 20px;
+}
+.data-info .country-name .info-description {
+  display: flex;
+  flex-direction: row;
+}
+.data-info .country-name .info-description .right-info {
+  margin-left: 50px;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.border-countries {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+}
+.border-countries .border-country {
+  margin-left: 10px;
+  border: 1px solid gray;
 }/*# sourceMappingURL=index.css.map */

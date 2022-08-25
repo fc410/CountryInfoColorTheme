@@ -4,14 +4,13 @@ import {useState, useEffect, useRef} from 'react';
 import {Card} from 'react-bootstrap';
 import './index.css';
 import {Link} from 'react-router-dom';
+import SearchBar from '../SearchBar';
 
 const LightMode = () => {
     const [data, setData] = useState([])
     const [isPressed, setIsPressed] = useState(false)
     const [filter, setFilter] = useState('')
     const [searchTerm, setSearchTerm] = useState('')
-    const [searchResults, setSearchResults] = useState([],)
-    const [searchPressed, setSearchPressed] = useState(false)
 
     useEffect(() =>{
         axios.get('https://restcountries.com/v3.1/all').then(res=>{
@@ -54,39 +53,41 @@ const LightMode = () => {
         
     },[filter])
 
-    const handleChange = (event) => {
-        setSearchTerm(event.target.value)
-        setSearchPressed(!searchPressed)
-    }
+    // const handleChange = (event) => {
+    //     setSearchTerm(event.target.value)
+    //     setSearchPressed(!searchPressed)
+    // }
 
-    useEffect(() => {
-        if(searchTerm !== ''){
-            axios.get(`https://restcountries.com/v3.1/name/${searchTerm}`).then(
-                res=>{
-                    console.log(res)
-                    let toInsert = res.data.map((country) =>({
-                        name: country.name.common,
-                        image: country.flags.png,
-                    }))
+    // useEffect(() => {
+    //     if(searchTerm !== ''){
+    //         console.log(searchTerm)
+    //         setSearchResults([])
+    //         axios.get(`https://restcountries.com/v3.1/name/${searchTerm}`).then(
+    //             res=>{
+    //                 console.log(res)
+    //                 let toInsert = res.data.map((country) =>({
+    //                     name: country.name.common,
+    //                     image: country.flags.png,
+    //                 }))
 
-                    setSearchResults((prev) => [...prev, ...toInsert])
-                }
-            )
-        }
-    },[searchTerm])
+    //                 setSearchResults((prev) => [...prev, ...toInsert])
+    //             }
+    //         )
+    //     }
+    // },[searchTerm])
 
-    const handleSearch = (event) =>{
-        console.log(event)
-        setSearchPressed(!searchPressed)
-        setSearchTerm('')
-    }
+    // const handleSearch = (event) =>{
+    //     console.log(event)
+    //     setSearchPressed(!searchPressed)
+    //     setSearchTerm('')
+    // }
 
-    console.log(searchResults)
+    console.log(searchTerm)
 
     return(
         <div className='lightmode-content'>
             <div className='search-dropdown'>
-                <div>
+                {/* <div>
                     <input 
                         type='search' 
                         className='search-input' 
@@ -108,13 +109,13 @@ const LightMode = () => {
                                     >
                                         <img src={country.image} alt='county-img' style={{width: '25px', marginRight:'5px'}}/>
                                         {country.name}
-                                        
                                     </Link>
                                 ))}
                             </div>: null
                         }
 
-                </div>
+                </div> */}
+                <SearchBar />
 
                 <div className='dropdown'>
                     <button className='dropdown-button' onClick={() => setIsPressed(!isPressed)}>
@@ -122,11 +123,11 @@ const LightMode = () => {
                     </button> 
                     {isPressed ? 
                         <div className='dropdown-items'>
-                            <a className='dropdown-item' href='africa' onClick={handleAClick}>Africa</a>
-                            <a className='dropdown-item' href='america' onClick={handleAClick}>America</a>
-                            <a className='dropdown-item' href='asia' onClick={handleAClick}>Asia</a>
-                            <a className='dropdown-item' href='europe' onClick={handleAClick}>Europe</a>
-                            <a className='dropdown-item' href='oceania`' onClick={handleAClick}>Oceania</a>
+                            <a className='dropdown-item' onClick={handleAClick}>Africa</a>
+                            <a className='dropdown-item' onClick={handleAClick}>America</a>
+                            <a className='dropdown-item' onClick={handleAClick}>Asia</a>
+                            <a className='dropdown-item' onClick={handleAClick}>Europe</a>
+                            <a className='dropdown-item' onClick={handleAClick}>Oceania</a>
                         </div>: null
                     }
                 </div>
@@ -134,7 +135,11 @@ const LightMode = () => {
             <div className='grid-box'>
                 {data ? data.map((country, idx) =>(
                     <Card className='country-card' key={idx}>
-                        <Card.Img src={country.image} style={{height: '175px'}}/>
+                        <Link
+                            to={`/${country.name}`}
+                        >
+                            <Card.Img src={country.image} style={{height: '175px'}}/>
+                        </Link>
                         <Card.Title style={{textAlign:'center'}}>{country.name}</Card.Title>
                         <Card.Body>
                             <div>
