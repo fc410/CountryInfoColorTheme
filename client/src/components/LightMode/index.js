@@ -28,7 +28,6 @@ const LightMode = () => {
 
     const handleAClick = (event) => {
         setFilter(event.target.firstChild.data)
-        console.log(filter)
         setIsPressed(!isPressed)
     }
 
@@ -83,15 +82,15 @@ const LightMode = () => {
                         >
                             <Card.Img src={country.image} style={{height: '175px'}}/>
                         </Link>
-                        <Card.Title style={{textAlign:'center', marginTop: '5px'}}>{country.name}</Card.Title>
+                        <Card.Title style={{textAlign:'center', marginTop: '5px'}} className='card-title'>{country.name}</Card.Title>
                         <Card.Body style={{fontSize: '14px'}}>
-                            <div>
+                            <div className='card-text'>
                                 <span className='body-text'>Population:</span> {country.population.toLocaleString(undefined)}
                             </div>
-                            <div>
+                            <div className='card-text'>
                                 <span className='body-text'>Region:</span> {country.region}
                             </div>
-                            <div>
+                            <div className='card-text'>
                                 <span className='body-text'>Capital:</span> {country.capital}
                             </div>
                         </Card.Body>

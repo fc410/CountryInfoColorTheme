@@ -1,10 +1,13 @@
 .country-info-content{
     display: flex;
-    position: absolute;
     justify-content: center;
     align-items: center;
     height: 100vh;
     width: 100%;
+}
+
+#dark .country-info-content{
+    background-color: (86, 86, 86)
 }
 
 .info-button{
@@ -25,6 +28,11 @@
             color: white;
         }
     }
+}
+
+#dark .button-info{
+    background-color:rgb(151, 151, 151);
+    box-shadow: none;
 }
 
 .data-info{
@@ -61,26 +69,43 @@
         }
     }
 }
+#dark .name{
+    color: white;
+}
 
 .title{
     font-weight: bold;
     font-size: 15px;
+}
+#dark .title{
+    color: white;
+}
+
+#dark .info-description{
+    color:rgb(191, 191, 191)
 }
 
 .border-countries{
     margin-top: 50px;
     display: flex;
     flex-direction: row;
-    .border{
+    .b-country{
+        display: flex;
+        flex-direction: row;
         border: none;
+        .border-country{
+            margin-left: 10px;
+            box-shadow: 1px 1px 2px 2px rgb(200, 200, 200);
+            font-size: 14px;
+            padding: 1px;
+        }
     }
+}
 
-    .border-country{
-        margin-left: 10px;
-        box-shadow: 1px 1px 2px 2px rgb(200, 200, 200);
-        font-size: 14px;
-        padding: 1px;
-    }
+#dark .border-country{
+    box-shadow: none;
+    border: 1px solid white;
+    color: white;
 }
 
 
@@ -110,20 +135,17 @@
     .border-countries{
         flex-direction: column;
         margin-top: 20px;
-        .border{
+
+        .b-country{
+            margin-top: 10px;
             display: grid;
             grid-template-columns: auto auto auto auto;
             width: 50%;
             margin-bottom: 50px;
 
+            .border-country{
+                margin-bottom: 10px;
+            }
         }
-
-        .border-country{
-            margin-bottom: 10px;
-        }
-    }
-
-    .border{
-        border: none;
     }
 }

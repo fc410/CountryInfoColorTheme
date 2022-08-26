@@ -121,7 +121,7 @@ const CountryInfo = () => {
                     </div>
                     <div className='border-countries'>
                         <span className='title'>Border Countries: </span>
-                        <div className='border'>
+                        <div className='b-country'>
                             {borderCountries.map((country, idx) =>(
                                 <div className='border-country' key={idx}>{country}</div>
                             ))}

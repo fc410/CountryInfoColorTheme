@@ -31,8 +31,16 @@
   padding: 10px;
 }
 
+#dark .grid-box {
+  background-color: rgb(86, 86, 86);
+}
+
 .country-card {
   margin: 30px;
+}
+
+#dark .country-card {
+  background-color: rgb(100, 100, 100);
 }
 
 .body-text {
@@ -40,11 +48,30 @@
   font-size: 15px;
 }
 
+#dark .body-text {
+  color: white;
+}
+
+#dark .card-title {
+  color: white;
+}
+
+#dark .card-text {
+  color: rgba(193, 193, 193, 0.989);
+}
+
 .search-input {
   margin-left: 5%;
   border: none;
   height: 100%;
   box-shadow: 1px 1px 2px 2px rgb(200, 200, 200);
+  width: 400px;
+}
+
+#dark .search-input {
+  background-color: rgb(100, 100, 100);
+  box-shadow: none;
+  color: white;
 }
 
 .search-input:focus {
@@ -65,6 +92,13 @@
   width: 200px;
   height: 100%;
   box-shadow: 1px 1px 2px 2px rgb(200, 200, 200);
+  z-index: 0;
+}
+
+#dark .dropdown-button {
+  box-shadow: none;
+  background-color: rgb(100, 100, 100);
+  color: white;
 }
 
 .dropdown-button:hover {
@@ -80,22 +114,46 @@
   background-color: rgb(207, 207, 207);
 }
 
+#dark .dropdown-items {
+  background-color: rgb(176, 176, 176);
+}
+
+#dark .dropdown-item:hover {
+  background-color: rgb(240, 240, 240);
+}
+
 .search-results {
   position: relative;
   left: 10px;
   background: white;
   height: 150px;
-  width: 185px;
+  width: 100%;
+  margin-left: 10px;
+  top: 2px;
   display: flex;
   flex-direction: column;
+  z-index: 9;
 }
 .search-results .searchItem {
   width: 100%;
   color: black;
   text-decoration: none;
+  z-index: 9;
 }
 .search-results .searchItem:hover {
   background-color: rgb(207, 207, 207);
+}
+
+#dark .search-results {
+  background-color: rgb(176, 176, 176);
+}
+
+#dark .searchItem {
+  color: rgb(39, 39, 39);
+}
+
+#dark .searchItem:hover {
+  background-color: rgb(240, 240, 240);
 }
 
 @media (max-width: 415px) {
@@ -113,8 +171,9 @@
     width: 90%;
   }
   .search-results {
-    top: 1px;
-    left: 5%;
+    position: absolute;
+    top: 48px;
+    left: 10px;
     width: 90%;
   }
   .dropdown {
@@ -127,7 +186,8 @@
     height: 45px;
   }
   .dropdown-items {
-    top: 1px;
+    position: absolute;
+    top: 60px;
     left: 5%;
     width: 51%;
   }
