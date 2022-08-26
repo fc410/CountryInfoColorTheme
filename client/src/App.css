@@ -10,4 +10,10 @@
   position: absolute;
   top: 10px;
   right: 10%;
+}
+
+@media (max-width: 415px) {
+  .switch {
+    top: 25px;
+  }
 }/*# sourceMappingURL=App.css.map */
