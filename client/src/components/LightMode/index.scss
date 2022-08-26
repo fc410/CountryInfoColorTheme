@@ -1,7 +1,14 @@
 .lightmode-content{
-    background-color: rgb(230, 230, 230);
     height: 100vh;
     width: 100%;
+}
+
+#light .lightmode-content{
+    background-color: rgb(230, 230, 230);
+}
+
+#dark .lightmode-content{
+    background-color: rgb(86, 86, 86);
 }
 
 .search-dropdown{
@@ -30,6 +37,7 @@
 
 .body-text{
     font-weight: bold;
+    font-size: 15px;
 }
 
 .search-input{
@@ -37,6 +45,10 @@
     border: none;
     height: 100%;
     box-shadow: 1px 1px 2px 2px rgb(200, 200, 200)
+}
+
+.search-input:focus{
+    outline: none;
 }
 
 .searchItem{
@@ -87,4 +99,44 @@
             background-color: rgb(207, 207, 207);
         }
       }
+}
+
+
+@media (max-width: '415px'){
+    .grid-box{
+        grid-template-columns: auto;
+        top: 30%;
+    }
+    .search-dropdown{
+        flex-direction: column;
+    }
+    
+    .search-input{
+        margin-left: 5%;
+        margin-right: 5%;
+        height: 45px;
+        width: 90%;
+    }
+
+    .search-results{
+        top: 1px;
+        left: 5%;
+        width: 90%;
+    }
+    .dropdown{
+        position: absolute;
+        display: flex;
+
+    }
+
+    .dropdown-button{
+        margin-top: 20px;
+        margin-left: 5%;
+        height: 45px;
+    }
+    .dropdown-items{
+        top: 1px;
+        left: 5%;
+        width: 51%;
+    }
 }

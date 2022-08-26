@@ -49,6 +49,7 @@
 .data-info .country-name .info-description {
   display: flex;
   flex-direction: row;
+  font-size: 14px;
 }
 .data-info .country-name .info-description .right-info {
   margin-left: 50px;
@@ -56,6 +57,7 @@
 
 .title {
   font-weight: bold;
+  font-size: 15px;
 }
 
 .border-countries {
@@ -63,7 +65,49 @@
   display: flex;
   flex-direction: row;
 }
+.border-countries .border {
+  border: none;
+}
 .border-countries .border-country {
   margin-left: 10px;
-  border: 1px solid gray;
+  box-shadow: 1px 1px 2px 2px rgb(200, 200, 200);
+  font-size: 14px;
+  padding: 1px;
+}
+
+@media (max-width: 415px) {
+  .data-info {
+    flex-direction: column;
+    width: 90%;
+  }
+  .data-info .flag-img {
+    width: 100%;
+    height: 200px;
+  }
+  .data-info .country-name {
+    margin-left: 0;
+  }
+  .data-info .country-name .info-description {
+    flex-direction: column;
+  }
+  .data-info .country-name .info-description .right-info {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+  .border-countries {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  .border-countries .border {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    width: 50%;
+    margin-bottom: 50px;
+  }
+  .border-countries .border-country {
+    margin-bottom: 10px;
+  }
+  .border {
+    border: none;
+  }
 }/*# sourceMappingURL=index.css.map */

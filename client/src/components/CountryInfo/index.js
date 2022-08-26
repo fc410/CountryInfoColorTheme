@@ -18,8 +18,9 @@ const CountryInfo = () => {
 
     useEffect(() => {
        axios.get(`https://restcountries.com/v3.1/name/${countryName}`).then(response => {
-        // console.log(response.data[0])
+        console.log(response.data[0])
         setData({
+
             name: countryName,
             image: response.data[0].flags.png,
             population: response.data[0].population,
@@ -30,7 +31,7 @@ const CountryInfo = () => {
         })
         
         for (let k in response.data[0].currencies) {
-            setCurrencies(prev => [...prev, k])
+            setCurrencies(prev => [...prev, response.data[0].currencies[k].name])
         }
 
         for(let x in response.data[0].languages) {
@@ -52,7 +53,9 @@ const CountryInfo = () => {
        }) 
     },[])
 
+
     useEffect(() =>{
+
         countryCodes.forEach(country => {
             if(country === 'None'){
                 setBorderCountries(['None'])
@@ -106,21 +109,23 @@ const CountryInfo = () => {
                             }
                             {data ? 
                                 <div>
-                                    <span className='title'>currency:</span> {currencies.join(', ')}
+                                    <span className='title'>Currency:</span> {currencies.join(', ')}
                                 </div>: null
                             }
                             {data ? 
                                 <div>
-                                    <span className='title'>languages:</span> {languages.join(', ')}
+                                    <span className='title'>Languages:</span> {languages.join(', ')}
                                 </div>:null
                             }
                         </div>
                     </div>
                     <div className='border-countries'>
                         <span className='title'>Border Countries: </span>
-                        {borderCountries.map((country, idx) =>(
-                            <div className='border-country' key={idx}>{country}</div>
-                        ))}
+                        <div className='border'>
+                            {borderCountries.map((country, idx) =>(
+                                <div className='border-country' key={idx}>{country}</div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>

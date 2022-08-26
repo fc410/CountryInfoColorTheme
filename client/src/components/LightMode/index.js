@@ -53,68 +53,11 @@ const LightMode = () => {
         
     },[filter])
 
-    // const handleChange = (event) => {
-    //     setSearchTerm(event.target.value)
-    //     setSearchPressed(!searchPressed)
-    // }
-
-    // useEffect(() => {
-    //     if(searchTerm !== ''){
-    //         console.log(searchTerm)
-    //         setSearchResults([])
-    //         axios.get(`https://restcountries.com/v3.1/name/${searchTerm}`).then(
-    //             res=>{
-    //                 console.log(res)
-    //                 let toInsert = res.data.map((country) =>({
-    //                     name: country.name.common,
-    //                     image: country.flags.png,
-    //                 }))
-
-    //                 setSearchResults((prev) => [...prev, ...toInsert])
-    //             }
-    //         )
-    //     }
-    // },[searchTerm])
-
-    // const handleSearch = (event) =>{
-    //     console.log(event)
-    //     setSearchPressed(!searchPressed)
-    //     setSearchTerm('')
-    // }
-
     console.log(searchTerm)
 
     return(
         <div className='lightmode-content'>
             <div className='search-dropdown'>
-                {/* <div>
-                    <input 
-                        type='search' 
-                        className='search-input' 
-                        placeholder='Search'
-                        value={searchTerm}
-                        onChange={handleChange}
-                    />
-                        {searchPressed ? 
-                            <div
-                                className='search-results' 
-                                style={{overflowY:'auto'}}
-                            >
-                                {searchResults.map((country, idx) =>(
-                                    <Link 
-                                        to={`/${country.name}`}
-                                        key={idx} 
-                                        className='searchItem'
-                                        onClick={handleSearch}
-                                    >
-                                        <img src={country.image} alt='county-img' style={{width: '25px', marginRight:'5px'}}/>
-                                        {country.name}
-                                    </Link>
-                                ))}
-                            </div>: null
-                        }
-
-                </div> */}
                 <SearchBar />
 
                 <div className='dropdown'>
@@ -140,8 +83,8 @@ const LightMode = () => {
                         >
                             <Card.Img src={country.image} style={{height: '175px'}}/>
                         </Link>
-                        <Card.Title style={{textAlign:'center'}}>{country.name}</Card.Title>
-                        <Card.Body>
+                        <Card.Title style={{textAlign:'center', marginTop: '5px'}}>{country.name}</Card.Title>
+                        <Card.Body style={{fontSize: '14px'}}>
                             <div>
                                 <span className='body-text'>Population:</span> {country.population.toLocaleString(undefined)}
                             </div>

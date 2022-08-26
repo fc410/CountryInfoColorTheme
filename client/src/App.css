@@ -1,0 +1,13 @@
+#light {
+  background-color: white;
+}
+
+#dark {
+  background-color: rgb(78, 78, 78);
+}
+
+.switch {
+  position: absolute;
+  top: 5px;
+  right: 10%;
+}/*# sourceMappingURL=App.css.map */
