@@ -79,6 +79,7 @@ const LightMode = () => {
                     <Card className='country-card' key={idx}>
                         <Link
                             to={`/${country.name}`}
+                            className='card-img'
                         >
                             <Card.Img src={country.image} style={{height: '175px'}}/>
                         </Link>

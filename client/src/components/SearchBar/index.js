@@ -56,9 +56,8 @@ const SearchBar = () => {
                             to={`/${country.name}`}
                             key={idx} 
                             className='searchItem'
-                            // onClick={handleSearch}
                         >
-                            <img src={country.image} alt='county-img' style={{width: '25px', marginRight:'5px'}}/>
+                            <img src={country.image} alt='country-img' style={{width: '25px', marginRight:'5px'}}/>
                             {country.name}
                         </Link>
                     ))}
